@@ -1,0 +1,14 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    Forms
+  </title>
+</head>
+<body>
+  <form action = "/authenticate/" method = "get">
+    <input type="text" name="A" size="10" value="input something">
+    <input type="submit" name="done" value="Submit">
+</body>
+</html>

@@ -6,7 +6,6 @@ def findMatch(username, password):
     f.close()
     for line in s:
         l = line.split(",")
-        print(l)
         if username == l[0]:
             if hashlib.sha224(password).hexdigest() == l[1]:
                 return "complete"
@@ -18,9 +17,11 @@ def login(username, password):
     s = findMatch(username, password)
     if s == "complete":
         return "successful login"
-    else:
+    elif s == "username":
         return "login failed"
-    
+    elif s == "nothing":
+        return "nothing"
+
 def register(username, password):
     s = findMatch(username, password)
     if s == "complete" or s == "username":
@@ -31,8 +32,7 @@ def register(username, password):
         r.close()
         f = open("data/users.csv", "w")
         new_password = hashlib.sha224(password).hexdigest()
-        f.write(s + username + "," + new_password)
+        f.write(s + username + "," + new_password + "\n")
         f.close()
         return "new account registered"
-        
-
+  

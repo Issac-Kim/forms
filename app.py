@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from utils import readCSV
+
 app = Flask(__name__)
 
 @app.route("/")
@@ -12,9 +13,9 @@ def log():
     username = r['user']
     password = r['pass']
     if "login" in r:
-        return login(username, password)
+        return readCSV.login(username, password)
     elif "register" in r:
-        return register(username, password)
+        return readCSV.register(username, password)
     
 
 if __name__ == '__main__':

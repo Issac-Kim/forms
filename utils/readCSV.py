@@ -31,7 +31,7 @@ def register(username, password):
         r.close()
         f = open("data/users.csv", "w")
         new_password = hashlib.sha224(password).hexdigest()
-        f.write(s + username + "," + new_password)
+        f.write(s + username + "," + new_password + "\r\n")
         f.close()
         return "new account registered"
         
